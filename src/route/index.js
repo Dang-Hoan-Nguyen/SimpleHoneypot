@@ -1,5 +1,5 @@
 import express from "express";
-import generalController from "../controllers/generalController"
+import generalController from "../controllers/generalController";
 
 
 
@@ -9,6 +9,10 @@ let initPublicWebRoutes = (app) => {
 
 
     // Public routes 
+
+    router.get("/", generalController.renderIndex);
+    router.get("/testllm", generalController.testPage);
+    router.get("/hello", (req, res) => {res.render("index.ejs")});
 
     return app.use("/", router);
 }
