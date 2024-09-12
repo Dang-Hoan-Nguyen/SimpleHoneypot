@@ -1,8 +1,10 @@
 import express from "express";
+// const path = require("path");
+const serveIndex = require("serve-index");
 
 
 let configViewEngine = (app) => {
-    app.use(express.static("./src/public"));
+    app.use("/public", express.static("./src/public"), serveIndex("./src/public", {icons: true}));
     app.set("view engines", "ejs");
     app.set("views", "./src/views");
 }

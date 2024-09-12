@@ -1,0 +1,7 @@
+{
+  "Headers": {
+    "Content-Type": "text/html",
+    "Status Code": "200 OK"
+  },
+  "Body": "<!DOCTYPE html><html><head><title>Location Page</title></head><body><h1>Welcome to the Where-Am-I Page</h1><p>You seem to have found yourself in a mysterious location. Don't worry, you're not lost. Enjoy the view!</p></body></html>"
+}

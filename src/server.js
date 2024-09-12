@@ -2,7 +2,8 @@ import express from "express";
 import initPublicWebRoutes from "./route/index.js";
 import initUserWebRoutes from "./route/user.js";
 import configViewEngine from "./config/viewEngine.js";
-const { Pool } = require('pg');
+import configPrivilegedViewEngine from "./config/privilegedView.js";
+// const { Pool } = require('pg');
 import bodyParser from "body-parser";
 require("dotenv").config();
 const mysql = require("mysql2");
@@ -13,10 +14,13 @@ var session = require("express-session");
 let app = express();
 
 
-const connection = new Pool({
+const connection = mysql.createPool({
     host: '127.0.0.1',
-    database: 'simple',
-})
+    database: 'lawfirmhp',
+    user: 'root',
+    password: ''
+    // port: 3306
+});
 
 app.use(function(req, res, next) {
     req.pool = connection;
@@ -39,6 +43,7 @@ configViewEngine(app);
 initPublicWebRoutes(app);
 initUserWebRoutes(app);
 
+// configPrivilegedViewEngine(app);
 
 let port = process.env.PORT || 5050;
 app.listen(port, () => {

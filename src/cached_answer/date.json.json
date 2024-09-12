@@ -1,0 +1,9 @@
+{
+  "Headers": {
+    "Content-Type": "application/json",
+    "Status Code": "200 OK"
+  },
+  "Body": {
+    "date": "2023-03-01"
+  }
+}

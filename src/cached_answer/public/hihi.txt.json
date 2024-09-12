@@ -1,0 +1,8 @@
+{
+  "Headers": {
+    "Content-Type": "text/plain",
+    "Server": "Apache/2.4.38",
+    "Status Code": "200"
+  },
+  "Body": "Hello, this is the hihi.txt file content."
+}

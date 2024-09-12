@@ -1,0 +1,7 @@
+{
+  "Headers": {
+    "Name": "pwd.txt",
+    "Data-type": "text/html"
+  },
+  "Body": "This is the content of pwd.txt file."
+}

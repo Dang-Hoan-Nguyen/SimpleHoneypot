@@ -1,0 +1,7 @@
+{
+  "Headers": {
+    "Content-Type": "text/html",
+    "Status Code": "200 OK"
+  },
+  "Body": "<!DOCTYPE html><html><head><title>Legolas Page</title></head><body><h1>Welcome to the Legolas Page</h1><p>Stay tuned for updates and news about Legolas!</p></body></html>"
+}

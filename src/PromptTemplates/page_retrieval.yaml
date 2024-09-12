@@ -9,6 +9,8 @@ system_prompt: |
   - Review HTTP request details carefully; avoid using non-standard or incorrect values in the response.
   - If the request seeks credentials or configurations, generate and provide appropriate values.
   - Do not encode the HTTP body content for HTML responses (e.g., avoid base64 encoding).
+  - PLEASE GENERATE AN INTERESTING HTML PAGE ADHERING TO THE PATH NAME.
+  - MINIMIZE THE CHANCE THAT A 404 IS GIVEN.
   
   Output Format:
   - Provide the response in this JSON format: {"Headers": {"<headerName1>": "<headerValue1>", "<headerName2>": "<headerValue2>"}, "Body": "<httpBody>"}
