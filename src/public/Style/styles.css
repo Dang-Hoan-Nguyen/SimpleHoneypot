@@ -1,0 +1,185 @@
+body {
+    font-family: 'Tahoma', sans-serif;
+    background-color: #B0C4DE; /* Light Steel Blue, keeping the background light */
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+
+.site-header {
+    background-color: rgba(0, 51, 102, 0.85); /* Darker Windows XP blue with Aero transparency */
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    border-bottom: 2px solid rgba(0, 25, 51, 0.9); /* Darker border */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 36px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Slight text shadow */
+}
+
+.site-header .green-text {
+    color: #228B22; /* Darker forest green, a muted XP green */
+}
+
+.site-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.site-nav ul li {
+    display: inline;
+}
+
+.site-nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.site-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(245, 245, 245, 0.9); /* Light gray with slight transparency */
+    border: 2px solid rgba(0, 51, 102, 0.9); /* Darker blue border */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Depth with shadow */
+    backdrop-filter: blur(8px); /* Adds a glassy blur effect */
+}
+
+.subtitle {
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(0, 51, 102, 0.85); /* Darker blue with transparency */
+    border: 2px solid rgba(0, 25, 51, 0.9); /* Darker blue border */
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.6), inset -1px -1px 3px rgba(0, 0, 0, 0.3); /* Inner shadow */
+}
+
+.server-info, .file-system, .file-list {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8); /* White with slight transparency */
+    border: 2px solid rgba(0, 51, 102, 0.9); /* Dark blue border */
+    border-radius: 8px;
+    box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.6), inset -1px -1px 3px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); /* Glassy blur effect */
+}
+
+.server-info p, .file-system label, .file-list label {
+    margin: 0 0 10px 0;
+    color: rgba(0, 51, 102, 0.85); /* Consistent dark blue text */
+}
+
+.status {
+    color: #228B22;
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.file-system input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 4px;
+    border: 2px solid rgba(0, 51, 102, 0.9); /* Dark blue border */
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.6), inset -1px -1px 3px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+}
+
+.search-container button, .file-actions button {
+    padding: 8px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 2px solid rgba(0, 25, 51, 0.9); /* Darker blue border */
+    background: rgba(0, 51, 102, 0.85); /* Semi-transparent dark blue */
+    color: #FFFFFF;
+    box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.6), inset -1px -1px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.search-container button:hover, .file-actions button:hover {
+    background-color: rgba(0, 25, 51, 0.9); /* Darker blue on hover */
+}
+
+.file-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.file-list th, .file-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5); /* Lighter, semi-transparent border */
+}
+
+.file-list th {
+    background-color: rgba(224, 224, 224, 0.9); /* Light gray */
+    color: rgba(43, 87, 154, 0.9); /* Dark blue text */
+    border-top: 2px solid rgba(0, 25, 51, 0.9); /* Darker blue border */
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.7); /* Light text shadow */
+}
+
+.file-list td {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+}
+
+.file-list tr:last-child td {
+    border-bottom: none;
+}
+
+.file-checkbox {
+    margin-right: 10px;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
+a {
+    color: #0000FF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 51, 102, 0.85); /* Dark blue with transparency */
+    color: #FFFFFF;
+    border-top: 2px solid rgba(0, 25, 51, 0.9); /* Darker blue border */
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.file-actions {
+    margin-bottom: 20px;
+}

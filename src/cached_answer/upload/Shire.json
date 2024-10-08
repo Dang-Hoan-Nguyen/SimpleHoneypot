@@ -1,0 +1,7 @@
+{
+  "Headers": {
+    "Content-Type": "text/html",
+    "Status Code": "200 OK"
+  },
+  "Body": "<!DOCTYPE html><html><head><title>Upload Page</title></head><body><h1>Welcome to the Shire Upload Page</h1><p>Feel free to upload your files here.</p></body></html>"
+}

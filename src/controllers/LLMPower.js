@@ -23,7 +23,7 @@ const PasreRequest = (req_method, req_path) => {
 
 const ParseResponse = (response) => {
   let parsed_response = response;
-  console.log(typeof response);
+  // console.log(typeof response);
   if (typeof response == "string") {
     let start = 0;
     let end = response.length;
@@ -37,7 +37,7 @@ const ParseResponse = (response) => {
     }
 
     response = response.slice(start, end + 1);
-    console.log(response);
+    // console.log(response);
     parsed_response = JSON.parse(response);
     try {
       parsed_response.Body = JSON.parse(parsed_response.Body);
@@ -80,7 +80,7 @@ const PromptLLM = async (
       "${sample}",
       "Hello" // `Sample file body : ${cached_sample}`
     );
-    console.log("correct: ", system_prompt);
+    // console.log("correct: ", system_prompt);
   } else if (cache_situation == true){
     // When the request is cached but outdated
      system_prompt.replace(
@@ -92,8 +92,8 @@ const PromptLLM = async (
   //
   user_prompt = await user_prompt.replace("${request}", request);
 
-  console.log("Sys: ", system_prompt);
-  console.log("user: ", user_prompt);
+  // console.log("Sys: ", system_prompt);
+  // console.log("user: ", user_prompt);
   console.log("\n\n---------------------------------");
 
   const chatCompletion = await client.chat.completions.create({

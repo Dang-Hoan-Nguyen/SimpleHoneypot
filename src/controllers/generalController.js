@@ -6,7 +6,7 @@ const dir = "./src/cached_answer/";
 const sample_dir = "./src/";
 
 const renderIndex = (req, res) => {
-  console.log(req.session.user);
+  // console.log(req.session.user);
   return res.render("copies.ejs");
 };
 
@@ -46,7 +46,7 @@ const CheckCache = (req, res, next) => {
           5
         ) 
         {
-          console.log("outdate");
+          // console.log("outdate");
           req.cached = true;
           req.cached_sample = result;
           queryLLM(req, res);
@@ -55,16 +55,16 @@ const CheckCache = (req, res, next) => {
 
         else 
         {
-          console.log(
-            "diff: ",
-            Math.abs(today.getTime() - cached_date) / (1000 * 3600 * 24)
-          );
-          console.log("Today: ", today);
-          console.log("Today getTime: ", today.getTime());
-          console.log("unparsed cached date: ", result[0][`created_time`]);
-          console.log("Cached date: ", cached_date);
-          console.log("Cached date getTime(): ", cached_date.getTime());
-          console.log("Request found in cache");
+          // console.log(
+          //   "diff: ",
+          //   Math.abs(today.getTime() - cached_date) / (1000 * 3600 * 24)
+          // );
+          // console.log("Today: ", today);
+          // console.log("Today getTime: ", today.getTime());
+          // console.log("unparsed cached date: ", result[0][`created_time`]);
+          // console.log("Cached date: ", cached_date);
+          // console.log("Cached date getTime(): ", cached_date.getTime());
+          // console.log("Request found in cache");
           let file_path = dir + result[0]["url_to_file"];
 
           // Check if the file is in cache
@@ -117,6 +117,9 @@ const queryLLM = (req, res, next) => {
   const llm_response = new Promise(async (resolve, reject) => {
     try {
       let response = await LLM.PromptLLM(req.method, req.path, req.type, req.cached_sample, req.cached);
+      console.log("======================")
+      console.log(response["Body"])
+      console.log("======================")
       req.pool.getConnection((err, connection) => {
         if (err) {
           console.log("here1");
@@ -125,6 +128,7 @@ const queryLLM = (req, res, next) => {
         }
         let query = "Insert INTO cache (req, url_to_file) VALUES (?, ?);";
         let url = file_name + ".json";
+        console.log("herer123")
 
         connection.query(query, [req.path, url], (eror, result, field) => {
           connection.release();
@@ -133,6 +137,7 @@ const queryLLM = (req, res, next) => {
             res.sendStatus(500);
             return;
           }
+          console.log("herer")
           return res
             .status(parseInt(response.Headers["Status Code"], 10))
             .send(response["Body"]);

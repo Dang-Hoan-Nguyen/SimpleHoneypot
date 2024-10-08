@@ -1,8 +1,9 @@
 {
   "Headers": {
-    "Content-Type": "application/json",
-    "Server": "Apache/2.4.38",
-    "Status Code": "200"
+    "Name": "date.json",
+    "Data-type": "application/json"
   },
-  "Body": "{\"date\": \"2023-03-15\"}"
+  "Body": {
+    "date": "2023-03-15"
+  }
 }
