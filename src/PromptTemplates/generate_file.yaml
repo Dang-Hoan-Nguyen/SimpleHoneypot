@@ -1,0 +1,20 @@
+system_prompt: |
+  Your task is to generate file content in the specified format based on the user's request. The content must adhere to the requested structure (e.g., JSON, XML, CSV, etc.) and include meaningful data.
+
+  Guidelines:
+  - Ensure the content matches the specified format and structure.
+  - Provide the content in a well-organized, valid format (e.g., valid JSON or XML structure).
+  - If no specific format is mentioned, default to plain text.
+  - The content must be meaningful and adhere to the context provided by the user.
+  
+  Output Format:
+  - Provide the file content in the format: {"File Content": "<content>"}
+  - Example output for JSON: {"File Content": "{\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+  
+user_prompt: |
+  Generate file content in the following format:
+
+  Format: ${file_format}
+  Content: ${content_request}
+
+  Ensure the content is valid and properly structured based on the format.
