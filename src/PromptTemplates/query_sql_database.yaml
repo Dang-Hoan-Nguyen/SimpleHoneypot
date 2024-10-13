@@ -11,7 +11,7 @@ system_prompt: |
   Output Format:
   - Provide the query in the format: {"SQL Query": "<query>"}
   - Example output: {"SQL Query": "SELECT name, email FROM users WHERE age > 30 ORDER BY name;"}
-  - ${sample}
+  -  ${sample}
   
 user_prompt: |
   Create an SQL query for the following request:

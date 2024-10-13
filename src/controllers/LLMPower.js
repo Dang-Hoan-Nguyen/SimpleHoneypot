@@ -74,16 +74,17 @@ const PromptLLM = async (
     user_prompt = getFile_template["user_prompt"];
   }
 
+
+
   // When the request is not cached
   if (cache_situation == false) {
-    system_prompt.replace(
+    system_prompt = await system_prompt.replace(
       "${sample}",
-      "Hello" // `Sample file body : ${cached_sample}`
+      `FILE CONTENT EXAMPLE: ${cached_sample}` // `Sample file body : ${cached_sample}`
     );
     // console.log("correct: ", system_prompt);
-  } else if (cache_situation == true){
-    // When the request is cached but outdated
-     system_prompt.replace(
+  } else {
+    system_prompt = await system_prompt.replace(
       "${sample}",
       `Previously cached response : ${cached_sample}`
     );
@@ -92,9 +93,11 @@ const PromptLLM = async (
   //
   user_prompt = await user_prompt.replace("${request}", request);
 
-  // console.log("Sys: ", system_prompt);
-  // console.log("user: ", user_prompt);
-  console.log("\n\n---------------------------------");
+  console.log("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
+  console.log(cache_situation);
+  console.log(system_prompt);
+  console.log(user_prompt);
+  console.log("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
 
   const chatCompletion = await client.chat.completions.create({
     messages: [

@@ -1,0 +1,7 @@
+{
+  "Headers": {
+    "Name": "hello.txt",
+    "Data-type": "text/html"
+  },
+  "Body": "Hello, World! This is the content of hello.txt file."
+}

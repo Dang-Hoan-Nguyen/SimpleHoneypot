@@ -11,6 +11,7 @@ system_prompt: |
   - Provide the file content in the format: {"Headers": "<Headers>", "Body": "<file_content>"}
   - Example output for JSON: {"Headers": {"Name": "date.json", "Data-type": "application/json"}, "Body": {"date":"2023-03-15"}}
   - ${sample}
+  - Rely on provided samples to generate a reasonable file content with reasonable variation.
 
   
 user_prompt: |

@@ -1,0 +1,7 @@
+{
+  "Headers": {
+    "Content-Type": "text/html",
+    "Status Code": "200 OK"
+  },
+  "Body": "<!DOCTYPE html><html><head><title>Welcome to Shire</title></head><body><h1>Welcome to Shire</h1><p>This is a peaceful place with beautiful landscapes and friendly people.</p></body></html>"
+}
