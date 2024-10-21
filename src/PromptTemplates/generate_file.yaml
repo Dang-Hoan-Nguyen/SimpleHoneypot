@@ -10,8 +10,10 @@ system_prompt: |
   Output Format:
   - Provide the file content in the format: {"Headers": "<Headers>", "Body": "<file_content>"}
   - Example output for JSON: {"Headers": {"Name": "date.json", "Data-type": "application/json"}, "Body": {"date":"2023-03-15"}}
-  - ${sample}
+  - THIS IS JUST A SAMPLE, NOT THE EXPECTED ANSWER. ${sample}
   - Rely on provided samples to generate a reasonable file content with reasonable variation.
+  - Please generate a text file content similar to the provided sample, with the same characters and context in 500 to 600 words. 
+  - THE CONTENT MUST BE BETWEEN 500 AND 600 WORDS.
 
   
 user_prompt: |

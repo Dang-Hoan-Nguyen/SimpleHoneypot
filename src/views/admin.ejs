@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../public/Style/styles.css">
 </head>
 <body>
+
     <header class="site-header">
         <h1>WINNIE'S <span class="green-text">LAWYERS</span></h1>
         <nav class="site-nav">
@@ -46,15 +47,15 @@
             <table id="file-directory">
                 <thead>
                     <tr>
-                        <th>Select</th>
                         <th>Name</th>
                         <th>Type</th>
-                        <th>Size</th>
-                        <th>Last Modified</th>
+                        <th>Contact</th>
+                        <th>Attachment</th>
                     </tr>
                 </thead>
                 <tbody id="file-tbody">
                     <!-- Default directory structure -->
+
                 </tbody>
             </table>
         </section>
@@ -65,5 +66,20 @@
     </footer>
 
     <script src="../public/Javascript/honeypot.js"></script>
+    <script>
+        const data = <%- JSON.stringify(data) %>;
+        const fileTbody = document.getElementById('file-tbody');
+
+        data.forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>${item.type}</td>
+                <td>${item.contact || '--'}</td>
+                <td><a style="cursor: pointer;" href=${item.attachment}>${item.attachment || '--'}</a></td>
+            `;
+            fileTbody.appendChild(row);
+        });
+    </script>
 </body>
 </html>

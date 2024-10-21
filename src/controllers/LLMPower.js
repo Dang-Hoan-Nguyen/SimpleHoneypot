@@ -12,6 +12,9 @@ const getFile_template = YAML.load(fs.readFileSync(getFile, "utf-8"));
 const getSQL = "./src/PromptTemplates/query_sql_database.yaml";
 const getSQL_template = YAML.load(fs.readFileSync(getSQL, "utf-8"));
 
+const GI = "./src/PromptTemplates/table_generate.yaml";
+const GI_template = YAML.load(fs.readFileSync(GI, "utf-8"));
+
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -80,7 +83,7 @@ const PromptLLM = async (
   if (cache_situation == false) {
     system_prompt = await system_prompt.replace(
       "${sample}",
-      `FILE CONTENT EXAMPLE: ${cached_sample}` // `Sample file body : ${cached_sample}`
+      `FILE CONTENT EXAMPLE: "${cached_sample}"` // `Sample file body : ${cached_sample}`
     );
     // console.log("correct: ", system_prompt);
   } else {
@@ -125,6 +128,29 @@ const PromptLLM = async (
   return parsed_reponse;
 };
 
+
+const GenerateInstance = async () => {
+
+  let system_prompt = GI_template["system_prompt"];
+  let user_prompt = GI_template["user_prompt"];
+
+  console.log(system_prompt);
+  console.log(user_prompt);
+
+  const chatCompletion = await client.chat.completions.create({
+    messages: [
+      { role: "system", content: system_prompt },
+      { role: "user", content: user_prompt },
+    ],
+    model: "gpt-3.5-turbo-1106",
+    temperature: 0,
+  });
+
+  console.log(chatCompletion.choices[0].message.content);
+  return JSON.parse(chatCompletion.choices[0].message.content);
+}
+
 module.exports = {
   PromptLLM: PromptLLM,
+  GenerateInstance: GenerateInstance,
 };

@@ -1,5 +1,6 @@
 import { setServers } from "dns";
 import LLM from "../controllers/LLMPower";
+
 import fs from "fs";
 
 const dir = "./src/cached_answer/";
@@ -7,7 +8,7 @@ const sample_dir = "./src/upload/";
 
 const renderIndex = (req, res) => {
   // console.log(req.session.user);
-  return res.render("copies.ejs");
+  return res.redirect("/user/admin");
 };
 
 // Check of the request is cached and not outdated
@@ -48,7 +49,7 @@ const CheckCache = (req, res, next) => {
         ) {
           // console.log("outdate");
           req.cached_sample = result;
-          queryLLM(req, res);
+          LLMController(req, res);
           return;
         } else {
           // console.log(
@@ -82,7 +83,7 @@ const CheckCache = (req, res, next) => {
                 if (err) {
                   console.error("Error reading file:", err);
                   req.cached_sample = loaded_sample_data;
-                  queryLLM(req, res);
+                  LLMController(req, res);
                   return;
                 }
                 try {
@@ -115,7 +116,7 @@ const CheckCache = (req, res, next) => {
             }
             // console.log(loaded_sample_data);
             req.cached_sample = loaded_sample_data
-            queryLLM(req, res);
+            LLMController(req, res);
             
           }
         );
@@ -125,7 +126,7 @@ const CheckCache = (req, res, next) => {
 };
 
 // Issue a query when needed
-const queryLLM = (req, res, next) => {
+const LLMController = (req, res, next) => {
   let file_name = req.path.replace("/", "");
   const llm_response = new Promise(async (resolve, reject) => {
     try {
@@ -176,10 +177,6 @@ const queryLLM = (req, res, next) => {
       return res.status(404);
     }
   });
-};
-
-const CacheResponse = (request, response) => {
-  return;
 };
 
 module.exports = {

@@ -1,0 +1,39 @@
+system_prompt: |
+  Your task is to GENERATE MORE INSTANCES WITH A SET OF PROVIDED INSTANCES
+  
+  Guidelines:
+  - Interpret the given array to generate more elements for that array uniformally.
+  - Put new instances and sample instances in the same array before returning it.
+  - The query should be optimized for performance and readability.
+  - No talk, just do
+
+  Output Format:
+  - Example output: [{"name": "", "type": "", "contact": "", "attachment": ""}, ...]
+  - THIS IS A SAMPLE OUTPUT [
+    { "name": "John Doe", "type": "Not important", "contact": "someone@somewhere.com", "attachment": "/jd.txt" },
+    { "name": "Bilbo", "type": "Real estate litigation", "contact": "someone@somewhere.com", "attachment": "/bb.txt" },
+    { "name": "Someone else", "type": "Real estate litigation", "contact": "someone@somewhere.com", "attachment": "/se.txt" },
+    { "name": "A", "type": "Civil dispute", "contact": "someone@somewhere.com", "attachment": "/a.txt" },
+    { "name": "Thorin", "type": "Contract Breach", "contact": "someone@somewhere.com", "attachment": "/t.txt" },
+    { "name": "Alice and Bob", "type": "Data leak", "contact": "someone@somewhere.com", "attachment": "/anb.txt" },
+    { "name": "Fred", "type": "Property Transfer", "contact": "fred@thehire.com", "attachment": "/fred.txt" },
+    { "name": "Grampa", "type": "Intellectual Property", "contact": "grampa@middleearth.com", "attachment": "/Grampa.txt" },
+    { "name": "Samm", "type": "Partnership Agreement", "contact": "sam@there.com", "attachment": "/samwise.txt" },
+    { "name": "Lindsey", "type": "Contract Dispute", "contact": "lz@here.com", "attachment": "/lindsay.txt" },
+    { "name": "Gimli", "type": "Civil Dispute", "contact": "gimli@underground.com", "attachment": "/gimunderground.txt" },
+    { "name": "Lily", "type": "Litigation", "contact": "lily@youtube.com", "attachment": "/lily.txt" },
+    ]
+  - RELY ON THIS STRUCTURE TO CREATE DIFFERENT IDENTITIES AND CONSIDERING VARIOUS OTHER CONTEXTS
+  
+user_prompt: |
+  No talk just do. Generate at least 10 more instances for this array:
+  
+  [
+        { "name": "John Doe", "type": "Not important", "contact": "someone@somewhere.com", "attachment": "/jd.txt" },
+        { "name": "Bilbo", "type": "Real estate litigation", "contact": "someone@somewhere.com", "attachment": "/bb.txt" },
+        { "name": "Someone else", "type": "Real estate litigation", "contact": "someone@somewhere.com", "attachment": "/se.txt" },
+        { "name": "A", "type": "Cilvil dispute", "contact": "someone@somewhere.com", "attachment": "/a.txt" },
+        { "name": "Thorin", "type": "Contract Breach", "contact": "someone@somewhere.com", "attachment": "/t.txt" },
+        { "name": "Alice and Bob", "type": "Data leak", "contact": "someone@somewhere.com", "attachment": "/anb.txt" },
+  ]
+

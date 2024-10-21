@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const fileDatabase = [
-        { name: 'Client_Contracts', type: 'Folder', size: '5.0 MB', modified: '2024-09-11 10:00:00' },
-        { name: 'Payment_Records', type: 'Folder', size: '3.5 MB', modified: '2024-09-10 15:20:00' },
-        { name: 'Client_IDs.csv', type: 'File', size: '200 KB', modified: '2024-09-10 12:30:00' },
-        { name: 'Court_Files', type: 'Folder', size: '8.2 MB', modified: '2024-09-09 14:22:37' },
-        { name: 'Case_001_Documentation.pdf', type: 'File', size: '350 KB', modified: '2024-09-08 16:00:00' },
-        { name: 'Client_Payment_History.xlsx', type: 'File', size: '500 KB', modified: '2024-09-07 09:45:00' },
-        { name: 'Court_Orders_2024.docx', type: 'File', size: '150 KB', modified: '2024-09-06 11:15:00' },
-        { name: 'Client_Contact_List.txt', type: 'File', size: '30 KB', modified: '2024-09-05 13:10:00' }
+        { name: 'John Doe', type: 'Not important', contact: 'someone@somewhere.com', attachment: '/jd.txt' },
+        { name: 'Bilbo', type: 'Real estate litigation', contact: 'someone@somewhere.com', attachment: '/bb.txt' },
+        { name: 'Someone else', type: 'Real estate litigation', contact: 'someone@somewhere.com', attachment: '/se.txt' },
+        { name: 'A', type: 'Cilvil dispute', contact: 'someone@somewhere.com', attachment: '/a.txt' },
+        { name: 'Thorin', type: 'Contract Breach', contact: 'someone@somewhere.com', attachment: '/t.txt' },
+        { name: 'Alice and Bob', type: 'Data leak', contact: 'someone@somewhere.com', attachment: '/anb.txt' },
     ];
 
     const fileTbody = document.getElementById('file-tbody');
@@ -17,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentUser = 'User';
 
     const renderFiles = (files) => {
-        fileTbody.innerHTML = '';
+        // fileTbody.innerHTML = '';
         files.forEach((file, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><input type="checkbox" class="file-checkbox" data-index="${index}"> <img src="${file.type === 'Folder' ? 'foldericon.png' : 'fileicon.png'}" alt="${file.type} Icon" class="icon"> ${file.name}</td>
+                <td>${file.name}</td>
                 <td>${file.type}</td>
-                <td>${file.size || '--'}</td>
-                <td>${file.modified || '--'}</td>
+                <td>${file.contact || '--'}</td>
+                <td><a style="cursor: pointer;" href=${file.attachment}>${file.attachment || '--'}</a></td>
             `;
             fileTbody.appendChild(row);
         });
@@ -47,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const folderName = prompt('Enter the name of the new folder:');
         if (folderName) {
             const now = new Date().toISOString().slice(0, 19).replace('T', ' ');
-            fileDatabase.push({ name: folderName, type: 'Folder', size: '0 MB', modified: now });
+            fileDatabase.push({ name: folderName, type: 'Folder', contact: '0 MB', attachment: now });
             renderFiles(fileDatabase);
         }
     };
