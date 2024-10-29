@@ -33,10 +33,10 @@ USE `lawfirmhp`;
 
 
 CREATE TABLE `cache` (
-  `cache_id` int(11) NOT NULL,
+  `cache_id` int(11) NOT NULL AUTO_INCREMENT,
   `req` varchar(255) DEFAULT NULL,
   `url_to_file` varchar(255) DEFAULT NULL,
-  `created_time` date DEFAULT curdate()
+  `created_time` datetime DEFAULT NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
